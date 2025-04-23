@@ -1,62 +1,64 @@
-📦 API de Consulta de Produtos - FarmaFácil
-Esta aplicação em Flask disponibiliza uma API REST para consultar produtos da base de dados farmafacil, retornando a descrição e o grupo de produtos válidos, com autenticação por chave de API.
+# 🧪 API de Consulta de Produtos - FarmaFácil
 
-🚀 Tecnologias utilizadas
-Python 3
+Esta é uma API simples desenvolvida com Flask que permite consultar produtos do banco de dados **FarmaFácil**, retornando sua descrição e código de grupo, com autenticação via **chave de API**.
 
-Flask
+---
 
-psycopg2 (PostgreSQL)
+## 📌 Funcionalidades
 
-🔧 Como usar
-📁 Clone o repositório
-bash
-Copiar
-Editar
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
-📦 Instale as dependências
-bash
-Copiar
-Editar
-pip install flask psycopg2
-⚙️ Configure a aplicação
-No código, a conexão com o banco e a chave de acesso estão definidas diretamente:
+- 🔐 Autenticação via chave de API
+- 📦 Consulta de produtos com base em grupos válidos
+- 🧾 Retorno em JSON com descrição e grupo do produto
 
-python
-Copiar
-Editar
-API_KEY = "************"
-🔐 Recomenda-se mover essas informações sensíveis para variáveis de ambiente ou arquivos .env em produção.
+---
 
-▶️ Executando o servidor
-bash
-Copiar
-Editar
-python app.py
-O servidor ficará disponível em:
+## 🚀 Tecnologias Utilizadas
 
-arduino
-Copiar
-Editar
-http://localhost:5000
-📌 Endpoints
-GET /produtos
-Consulta produtos pertencentes aos grupos definidos.
+- Python 3.x
+- Flask
+- psycopg2 (PostgreSQL)
 
-Parâmetros obrigatórios:
-key: chave de API para autenticação
+---
 
-Exemplo de requisição:
-vbnet
-Copiar
-Editar
-GET /produtos?key=d8A3b6JvQ1xP9zT7EwLm2YFkUo4RNsHG
-Exemplo de resposta:
-json
-Copiar
-Editar
-[
+## ⚙️ Como Usar
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+```
+
+## 2. Instale as dependências
+```pip install flask psycopg2
+```
+## 3. Execute o servidor
+```python app.py
+```
+## O servidor estará disponível em:
+```http://meudominio:5000
+```
+
+## 🔐 Autenticação
+```/produtos?key=SUA_CHAVE_AQUI
+```
+## Chave atual definida no código:
+```d8A3b6JvQ1xP9zT7E**********
+```
+
+## 📨 Endpoint
+### GET /produtos
+- Retorna a lista de produtos pertencentes a grupos válidos.
+
+Parâmetro | Tipo    | Obrigatório   | Descrição
+key       | string  | ✅ Sim       |  have de autenticação
+
+### Exemplo de requisição:
+```GET http://meudominio:5000/produtos?key=d8A3b6JvQ1xP9z*********
+```
+
+### Exemplo de reposta
+```[
   {
     "descricao": "dipirona 500mg",
     "grupo": 30
@@ -66,7 +68,10 @@ Editar
     "grupo": 31
   }
 ]
-Respostas de erro:
-403 Unauthorized – quando a chave de API é inválida.
+```
 
-500 Internal Server Error – erro de conexão ou consulta no banco de dados.
+## Possíveis Erros:
+
+Código | Significado
+403 | Acesso não autorizado
+500 | Erro ao conectar ou consultar o banco de dados
