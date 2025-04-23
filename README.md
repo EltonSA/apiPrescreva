@@ -30,20 +30,25 @@ cd seu-repositorio
 ```
 
 ## 2. Instale as dependências
-```pip install flask psycopg2
+```bash
+pip install flask psycopg2
 ```
 ## 3. Execute o servidor
-```python app.py
+```bash
+python app.py
 ```
 ## O servidor estará disponível em:
-```http://meudominio:5000
+```bash
+http://meudominio:5000
 ```
 
 ## 🔐 Autenticação
-```/produtos?key=SUA_CHAVE_AQUI
+```bash
+/produtos?key=SUA_CHAVE_AQUI
 ```
 ## Chave atual definida no código:
-```d8A3b6JvQ1xP9zT7E**********
+```bash
+d8A3b6JvQ1xP9zT7E**********
 ```
 
 ## 📨 Endpoint
@@ -54,11 +59,13 @@ Parâmetro | Tipo    | Obrigatório   | Descrição
 key       | string  | ✅ Sim       |  have de autenticação
 
 ### Exemplo de requisição:
-```GET http://meudominio:5000/produtos?key=d8A3b6JvQ1xP9z*********
+```bash
+GET http://meudominio:5000/produtos?key=d8A3b6JvQ1xP9z*********
 ```
 
 ### Exemplo de reposta
-```[
+```bash
+[
   {
     "descricao": "dipirona 500mg",
     "grupo": 30
